@@ -29,6 +29,7 @@
  * 時点では存在していないことから、エラーが発生してしまうためです。
  */
 window.addEventListener('DOMContentLoaded', () => {
+// DOMContentLoaded = ドキュメントを全て読み終わった後に処理をする
     // WebGLFrame クラスを new キーワードでインスタンス化
     const webgl = new WebGLFrame();
     // WebGLFrame.init メソッドには、HTML に書かれた canvas の id 属性名を指定
@@ -84,6 +85,7 @@ class WebGLFrame {
             const c = document.querySelector(`#${canvas}`);
             if(c instanceof HTMLCanvasElement === true){
                 this.canvas = c;
+                console.log('Success!');
             }
         }
         // この時点で canvas が正しく取得できていなければエラー
@@ -164,7 +166,7 @@ class WebGLFrame {
             this.createVbo(this.position),
         ];
         // 背景を何色でクリアするかを 0.0 ～ 1.0 の RGBA で指定する
-        gl.clearColor(0.1, 0.1, 0.1, 1.0);
+        gl.clearColor(248, 249, 250, 1.0);
         // このサンプルでは一度描画するのみなので running は false のままにしておく
         this.running = false;
         // セットアップ完了時刻のタイムスタンプを取得しておく
