@@ -113,7 +113,19 @@ class WebGLFrame {
 
         // ※今後シェーダが増えた場合、上記の５つのプロパティがシェーダの個数分必要になります
 
+        // 【MEMO】promiseについて
+        const p = new Promise((resolve, reject) => {
+            // 非同期処理を行う
+            resolve(); // 非同期処理が正しく終わった
+            reject(); // 非同期処理が正しく終わらなかった
+        });
+
+        p.then(() => {
+            // 非同期処理が終わったあと、実行したいことを書く
+        })
+
         return new Promise((resolve) => {
+            // *promise = JSオブジェクト。非同期処理を行うときに使われる
             this.loadShader([
                 './vs1.vert', // 頂点シェーダのファイルのパス（index.html から見た相対パス）
                 './fs1.frag', // フラグメントシェーダ（index.html から見た相対パス）
